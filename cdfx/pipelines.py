@@ -7,11 +7,14 @@
 
 import csv
 
+from scrapy import settings
+
 
 class CdfxPipeline(object):
 
     def open_spider(self, spider):
-        self.file = open('成都房协.csv', 'w', newline='', encoding='utf-8')
+        file_path = settings.get("FILE_PATH")
+        self.file = open(file_path, 'w', newline='', encoding='utf-8')
         self.csv_writer = csv.writer(self.file)
         headers = ['楼盘', '发布日期', '链接']
         self.csv_writer.writerow(headers)
