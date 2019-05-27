@@ -19,7 +19,8 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, li
 LOG_LEVEL = 'WARNING'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
-
+# 文件存放路径
+FILE_PATH = '成都房协.csv'
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 # CONCURRENT_REQUESTS = 32
 
@@ -66,8 +67,6 @@ ROBOTSTXT_OBEY = True
 ITEM_PIPELINES = {
     'cdfx.pipelines.CdfxPipeline': 300,
 }
-# 文件存放路径
-FILE_PATH = '成都房协.csv'
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
 # AUTOTHROTTLE_ENABLED = True
