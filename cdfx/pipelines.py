@@ -7,7 +7,7 @@
 
 import csv
 
-from scrapy import settings
+from scrapy.conf import settings
 
 
 class CdfxPipeline(object):
