@@ -22,11 +22,13 @@ class cdfxScrapy(scrapy.Spider):
         li_list = response.xpath("//ul[@class='ul_list']/li")
         # 遍历爬取 信息
         for li in li_list:
-            item = CdfxItem()
-            item['title'] = li.xpath("span[1]/a/text()").extract_first()
-            item['date'] = li.xpath("span[2]/text()").extract_first()
-            item['href'] = li.xpath("span[1]/a/@href").extract_first()
-            yield item
+            flag = li.xpath("span[1]/a/text()").extract_first()
+            if flag is not None:
+                item = CdfxItem()
+                item['title'] = li.xpath("span[1]/a/text()").extract_first()
+                item['date'] = li.xpath("span[2]/text()").extract_first()
+                item['href'] = self.host + li.xpath("span[1]/a/@href").extract_first()
+                yield item
         # 翻页处理
         has_next_page = response.xpath("//div[@class='pages2']/b/a[contains(text(), '下一页')]").extract_first()
         if has_next_page is not None:
