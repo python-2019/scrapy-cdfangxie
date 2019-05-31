@@ -21,6 +21,13 @@ LOG_LEVEL = 'WARNING'
 ROBOTSTXT_OBEY = True
 # 文件存放路径
 FILE_PATH = '成都房协.csv'
+
+DOWNLOADER_MIDDLEWARES = {
+   'cdfx.middlewares.CdfxDownloaderMiddleware': 543,
+}
+ITEM_PIPELINES = {
+    'cdfx.pipelines.CdfxPipeline': 300,
+}
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 # CONCURRENT_REQUESTS = 32
 
@@ -52,9 +59,6 @@ FILE_PATH = '成都房协.csv'
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
-#    'cdfx.middlewares.CdfxDownloaderMiddleware': 543,
-# }
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -64,9 +68,7 @@ FILE_PATH = '成都房协.csv'
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-    'cdfx.pipelines.CdfxPipeline': 300,
-}
+
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
 # AUTOTHROTTLE_ENABLED = True
