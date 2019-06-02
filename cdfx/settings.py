@@ -20,7 +20,8 @@ LOG_LEVEL = 'WARNING'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 # 文件存放路径
-FILE_PATH = '成都房协.csv'
+# FILE_PATH = '成都房协.csv'
+FILE_PATH = '/usr/local/apps/data/成都房协.csv'
 
 DOWNLOADER_MIDDLEWARES = {
    'cdfx.middlewares.CdfxDownloaderMiddleware': 543,
