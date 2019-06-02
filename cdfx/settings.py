@@ -18,7 +18,7 @@ NEWSPIDER_MODULE = 'cdfx.spiders'
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.25 Safari/537.36 Core/1.70.3676.400 QQBrowser/10.4.3505.400'
 LOG_LEVEL = 'WARNING'
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 # 文件存放路径
 # FILE_PATH = '成都房协.csv'
 FILE_PATH = 'data/成都房协.csv'
