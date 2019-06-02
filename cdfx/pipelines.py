@@ -6,6 +6,7 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 import csv
+import os
 
 from scrapy.conf import settings
 
@@ -14,6 +15,9 @@ class CdfxPipeline(object):
 
     def open_spider(self, spider):
         file_path = settings.get("FILE_PATH")
+        dir = file_path[0:file_path.rfind("/")]
+        if not os.path.exists(dir):
+            os.makedirs(dir)
         self.file = open(file_path, 'w', newline='', encoding='utf-8')
         self.csv_writer = csv.writer(self.file)
         headers = ['楼盘', '发布日期', '链接']
