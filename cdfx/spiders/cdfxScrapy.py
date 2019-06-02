@@ -28,7 +28,6 @@ class cdfxScrapy(scrapy.Spider):
                 item['title'] = li.xpath("span[1]/a/text()").extract_first()
                 item['date'] = li.xpath("span[2]/text()").extract_first()
                 item['href'] = self.host + li.xpath("span[1]/a/@href").extract_first()
-                print(item)
                 yield item
         # 翻页处理
         has_next_page = response.xpath("//div[@class='pages2']/b/a[contains(text(), '下一页')]").extract_first()
