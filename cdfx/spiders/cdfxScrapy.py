@@ -4,19 +4,20 @@ import scrapy
 
 # 这里是正确的 应该以spider上级目录(cdfx)为根目录
 from cdfx.items import CdfxItem
+from scrapy_redis.spiders import RedisSpider
 
 
-class cdfxScrapy(scrapy.Spider):
+class cdfxScrapy(RedisSpider):
     """
         成都房协网  预售楼盘公示
     """
     name = 'cdfangxie'
     allowed_domains = ["cdfangxie.com"]
     host = "http://www.cdfangxie.com"
-    start_urls = (
-        host + "/Infor/type/typeid/36.html",
-    )
-
+    # start_urls = (
+    #     host + "/Infor/type/typeid/36.html",
+    # )
+    redis_key = "cdfangxie"
     def parse(self, response):
         #  楼盘li 标签  list
         li_list = response.xpath("//ul[@class='ul_list']/li")
