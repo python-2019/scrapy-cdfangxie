@@ -30,4 +30,7 @@ class CdfxPipeline(object):
         return item
 
     def close_spider(self, spider):
-        self.file.closed()
+        try:
+            self.file.closed()
+        except Exception as e:
+            print(e)
