@@ -16,7 +16,6 @@ class cdfxScrapy(scrapy.Spider):
     start_urls = (
         host + "/Infor/type/typeid/36.html",
     )
-
     def parse(self, response):
         #  楼盘li 标签  list
         li_list = response.xpath("//ul[@class='ul_list']/li")

@@ -30,4 +30,4 @@ class CdfxPipeline(object):
         return item
 
     def close_spider(self, spider):
-        self.file.closed()
+        self.file.flush()
