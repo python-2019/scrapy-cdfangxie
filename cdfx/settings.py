@@ -17,6 +17,7 @@ NEWSPIDER_MODULE = 'cdfx.spiders'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.25 Safari/537.36 Core/1.70.3676.400 QQBrowser/10.4.3505.400'
 LOG_LEVEL = 'WARNING'
+LOG_FILE = '../spider.log'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 # 文件存放路径
@@ -33,7 +34,7 @@ DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 # 2(必须). 使用了scrapy_redis的调度器，在redis里分配请求
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 # 3(可选). 在redis中保持scrapy-redis用到的各个队列，从而允许暂停和暂停后恢复，也就是不清理redis queues
-# SCHEDULER_PERSIST = True
+SCHEDULER_PERSIST = True
 ITEM_PIPELINES = {
     'cdfx.pipelines.CdfxPipeline': 300,
     # 4(必须). 通过配置RedisPipeline将item写入key为 spider.name : items 的redis的list中，
