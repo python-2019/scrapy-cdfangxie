@@ -41,8 +41,8 @@ ITEM_PIPELINES = {
     'scrapy_redis.pipelines.RedisPipeline': 100 ,
 }
 # 5(必须). 指定redis数据库的连接参数
-REDIS_HOST = '127.0.0.1'
-REDIS_PORT = 6379
+REDIS_HOST = '192.168.10.196'
+REDIS_PORT = 10030
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 # CONCURRENT_REQUESTS = 32
 
