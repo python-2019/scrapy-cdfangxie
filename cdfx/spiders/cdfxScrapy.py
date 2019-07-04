@@ -14,10 +14,7 @@ class cdfxScrapy(RedisSpider):
     name = 'cdfangxie'
     allowed_domains = ["cdfangxie.com"]
     host = "http://www.cdfangxie.com"
-    # start_urls = (
-    #     host + "/Infor/type/typeid/36.html",
-    # )
-    redis_key = "cdfangxie"
+    redis_key = "scrapy:cdfangxie"
     def parse(self, response):
         #  楼盘li 标签  list
         li_list = response.xpath("//ul[@class='ul_list']/li")

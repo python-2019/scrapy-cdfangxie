@@ -24,7 +24,7 @@ ROBOTSTXT_OBEY = False
 FILE_PATH = 'data/成都房协.csv'
 
 DOWNLOADER_MIDDLEWARES = {
-   'cdfx.middlewares.CdfxDownloaderMiddleware': 543,
+    'cdfx.middlewares.CdfxDownloaderMiddleware': 543,
 }
 
 # =======分布式redis 配置=======
@@ -33,12 +33,12 @@ DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 # 2(必须). 使用了scrapy_redis的调度器，在redis里分配请求
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 # 3(可选). 在redis中保持scrapy-redis用到的各个队列，从而允许暂停和暂停后恢复，也就是不清理redis queues
-SCHEDULER_PERSIST = True
+# SCHEDULER_PERSIST = True
 ITEM_PIPELINES = {
     'cdfx.pipelines.CdfxPipeline': 300,
-# 4(必须). 通过配置RedisPipeline将item写入key为 spider.name : items 的redis的list中，
+    # 4(必须). 通过配置RedisPipeline将item写入key为 spider.name : items 的redis的list中，
     # 供后面的分布式处理item 这个已经由 scrapy-redis 实现，不需要我们写代码，直接使用即可
-    'scrapy_redis.pipelines.RedisPipeline': 100 ,
+    'scrapy_redis.pipelines.RedisPipeline': 100,
 }
 # 5(必须). 指定redis数据库的连接参数
 REDIS_HOST = '192.168.10.196'
